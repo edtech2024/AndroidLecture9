@@ -1,0 +1,25 @@
+package com.example.myapplicationnine
+
+import android.content.Context
+import com.example.data.DataModule
+import com.example.domain.DomainModule
+import dagger.BindsInstance
+import dagger.Component
+import javax.inject.Singleton
+
+@Component(modules = [DataModule::class, DomainModule::class, PresentationModule::class] )
+@Singleton
+interface ApplicationComponent {
+
+    @Component.Factory
+    interface SingletonComponentFactory {
+        fun create(@BindsInstance context: Context):ApplicationComponent
+    }
+
+    fun inject(fragment: MainFragment)
+    fun inject(fragment: DetailFragment)
+    fun inject(fragment: ListFragmentType1)
+    fun inject(fragment: ListFragmentType2)
+    fun inject(fragment: BSDFragment)
+
+}
