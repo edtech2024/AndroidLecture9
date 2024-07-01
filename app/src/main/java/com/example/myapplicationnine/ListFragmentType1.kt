@@ -58,8 +58,6 @@ class ListFragmentType1 : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        (activity?.application as ItemApplication).appComponent.inject(this)
     }
 
     override fun onCreateView(
