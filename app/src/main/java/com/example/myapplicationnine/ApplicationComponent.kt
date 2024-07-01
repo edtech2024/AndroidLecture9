@@ -18,8 +18,5 @@ interface ApplicationComponent {
 
     fun inject(fragment: MainFragment)
     fun inject(fragment: DetailFragment)
-    fun inject(fragment: ListFragmentType1)
-    fun inject(fragment: ListFragmentType2)
-    fun inject(fragment: BSDFragment)
 
 }
