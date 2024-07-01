@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.example.myapplicationnine.databinding.BsdFragmentBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import javax.inject.Inject
 
 
 class BSDFragment : BottomSheetDialogFragment() {
@@ -27,8 +27,7 @@ class BSDFragment : BottomSheetDialogFragment() {
 
     }
 
-    @Inject
-    lateinit var listViewModel: ListViewModel
+    val listViewModel: ListViewModel by viewModels( ownerProducer = { requireParentFragment() })
 
     private var _binding: BsdFragmentBinding? = null
     private val binding get() = _binding!!
@@ -47,9 +46,7 @@ class BSDFragment : BottomSheetDialogFragment() {
         // Inflate the layout for this fragment
         _binding = BsdFragmentBinding.inflate( inflater, container, false)
         _binding!!.lifecycleOwner = this
-        if (::listViewModel.isInitialized) {
-            _binding!!.listViewModel = listViewModel
-        }
+        _binding!!.listViewModel = listViewModel
         return binding.root
     }
 
